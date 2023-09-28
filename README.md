@@ -1,27 +1,39 @@
-# StarterTemplate
+# Angular Tutorial
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
-## Development server
+## Commands
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### - Run develop server
 
-## Code scaffolding
+```
+yarn start or ng serve
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### - Build app for production
 
-## Build
+```
+yarn build or ng build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### - Test app
 
-## Running unit tests
+```
+yarn test or ng test
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Create component
 
-## Running end-to-end tests
+### - component without separate template file in html and without test files and set standalone to true
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```
+ng generate component <name> --standalone --inline-template --skip-tests
+```
 
-## Further help
+> Hint : What is Standalone ? A Standalone component is a type of component which is not part of any Angular module. Prior to angular v14, usually when you would create a component, you'd pass it inside in the declaration array of the module.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### - component with separate template file in html and test files
+
+```
+ng generate component <name> --standalone
+```
