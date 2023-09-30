@@ -1,9 +1,8 @@
 <main>
-  <header class="brand-name flex justify-between">
-    <img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" />
-    <app-searchbar></app-searchbar>
+  <header class="brand-name">
+    <a [routerLink]="['/']"><img class="brand-logo" src="/assets/logo.svg" alt="logo" aria-hidden="true" /></a>
   </header>
   <section class="content">
-    <app-home></app-home>
+    <router-outlet></router-outlet>
   </section>
 </main>

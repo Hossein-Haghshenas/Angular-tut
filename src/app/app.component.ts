@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 // Components
 import { HomeComponent } from './components/home/home.component';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
+// Routing
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HomeComponent, SearchbarComponent],
+  imports: [RouterModule, HomeComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
