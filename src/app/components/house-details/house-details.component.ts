@@ -16,27 +16,31 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./house-details.component.css'],
 })
 export class HouseDetailsComponent {
-  // access to route options
-  route: ActivatedRoute = inject(ActivatedRoute);
-
   // get house details from house services
   housingService = inject(HousingService);
 
   housingLocation: HousingLocation | undefined;
 
-  // form section
+  // access to route options
+  route: ActivatedRoute = inject(ActivatedRoute);
+
+  constructor() {
+    // get house id from route
+    const housingLocationId = Number(this.route.snapshot.params['id']);
+
+    // get house details depend on house id
+    this.housingLocation =
+      this.housingService.getHousingLocationById(housingLocationId);
+  }
+
+  // Form functionality
+
+  // create a new form structure
   applyForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     email: new FormControl(''),
   });
-
-  constructor() {
-    const housingLocationId = Number(this.route.snapshot.params['id']);
-
-    this.housingLocation =
-      this.housingService.getHousingLocationById(housingLocationId);
-  }
 
   // apply form data function
   submitApplication() {

@@ -5,6 +5,7 @@ import { HousingLocation } from './housinglocation';
   providedIn: 'root',
 })
 export class HousingService {
+  // Image base url
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
   // fake data
@@ -120,6 +121,8 @@ export class HousingService {
       (housingLocation) => housingLocation.id === id
     );
   }
+
+  // submit form and print form data on console log
 
   submitApplication(firstName: string, lastName: string, email: string) {
     console.log(

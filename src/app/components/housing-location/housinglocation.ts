@@ -1,3 +1,5 @@
+// housing location types
+
 export interface HousingLocation {
   id: number;
   name: string;
