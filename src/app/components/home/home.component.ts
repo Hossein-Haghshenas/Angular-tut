@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HousingLocationComponent } from '../housing-location/housing-location.component';
 import { HousingLocation } from '../housing-location/housinglocation';
+import { HousingService } from '../housing-location/housing.service';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +14,27 @@ import { HousingLocation } from '../housing-location/housinglocation';
 export class HomeComponent {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
 
-  housingLocation: HousingLocation = {
-    id: 9999,
-    name: 'Test Home',
-    city: 'Test city',
-    state: 'ST',
-    photo: `${this.baseUrl}/example-house.jpg`,
-    availableUnits: 99,
-    wifi: true,
-    laundry: false,
-  };
+  housingLocationList: HousingLocation[] = [];
+
+  housingService: HousingService = inject(HousingService);
+
+  filteredLocationList: HousingLocation[] = [];
+
+  searchResults: string = '';
+
+  filterResults(text: string) {
+    this.filteredLocationList = this.housingLocationList.filter(
+      (housingLocation) =>
+        housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+    );
+
+    if (!text || this.filteredLocationList.length < 1) {
+      this.filteredLocationList = this.housingLocationList;
+    }
+  }
+
+  constructor() {
+    this.housingLocationList = this.housingService.getAllHousingLocations();
+    this.filteredLocationList = this.housingLocationList;
+  }
 }
