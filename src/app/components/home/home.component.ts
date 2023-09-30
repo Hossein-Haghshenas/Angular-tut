@@ -42,9 +42,13 @@ export class HomeComponent {
   }
 
   constructor() {
-    // get all houses from houses services
-    this.housingLocationList = this.housingService.getAllHousingLocations();
-    // set filtered data
-    this.filteredLocationList = this.housingLocationList;
+    this.housingService
+      .getAllHousingLocations()
+      .then((data: HousingLocation[]) => {
+        // get all houses from houses services
+        this.housingLocationList = data;
+        // set filtered data
+        this.filteredLocationList = data;
+      });
   }
 }

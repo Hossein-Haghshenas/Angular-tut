@@ -28,9 +28,12 @@ export class HouseDetailsComponent {
     // get house id from route
     const housingLocationId = Number(this.route.snapshot.params['id']);
 
-    // get house details depend on house id
-    this.housingLocation =
-      this.housingService.getHousingLocationById(housingLocationId);
+    this.housingService
+      .getHousingLocationById(housingLocationId)
+      .then((dataItem) => {
+        // get house details depend on house id
+        this.housingLocation = dataItem;
+      });
   }
 
   // Form functionality
