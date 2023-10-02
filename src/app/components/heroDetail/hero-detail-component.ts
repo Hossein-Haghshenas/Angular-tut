@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Hero } from '../../interfaces/hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+// Services
 import { HeroService } from '../heroes/hero.service';
 
 @Component({
@@ -23,6 +24,12 @@ export class HeroDetailComponent {
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroService.getOneHero(id).subscribe((hero) => (this.hero = hero));
+  }
+
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
   }
 
   // back to previous page
