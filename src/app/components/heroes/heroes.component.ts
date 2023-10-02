@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-// Fake data
-import { HEROES } from '../../mockHeroes';
+// Interfaces
 import { Hero } from 'src/app/interfaces/hero';
 // Services
 import { HeroService } from './hero.service';
-import { MessageService } from '../messages/message.service';
 
 @Component({
   selector: 'app-heroes',
@@ -12,16 +10,27 @@ import { MessageService } from '../messages/message.service';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent {
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) {}
+  constructor(private heroService: HeroService) {}
 
   heroes: Hero[] = [];
-  selectedHero?: Hero;
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+  }
+
+  newHero(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      this.heroes.push(hero);
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((target) => target.id !== hero.id);
+    this.heroService.deleteHero(hero.id).subscribe();
   }
 
   ngOnInit(): void {
