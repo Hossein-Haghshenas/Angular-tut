@@ -1,6 +1,30 @@
-# Angular Tutorial
+# Angular Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+## What is Angular ?
+
+Angular is a frontend framework for javascript which you can use to create web applications and you can also create SPA (single page application) that will be downloaded the website engine when the user visited the page and then change it locally on the browser therefor thats so fast and provide a great user experience
+
+## Angular developing requirements
+
+- Install last stable version of nodejs on your system
+- Install code editor for example : vs.code
+- Install angular cli globally
+
+## Create your first angular app
+
+for create a new angular app you must open the terminal and run this command
+
+```
+ng new <app-name>
+```
+
+> Hint 1 : ng referred to angular
+
+> Hint 2 : if you get this error **cannot be loaded because running scripts is disabled on this system** run the below command in your editor terminal
+
+```
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
 
 ## Commands
 
@@ -60,4 +84,4 @@ In the context of web development using the Angular framework, an **interface** 
    }
    ```
 
-## Add an input parameter to the component
+<!-- ## Add an input parameter to the component -->
