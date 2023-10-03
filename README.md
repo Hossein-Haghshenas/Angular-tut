@@ -31,6 +31,8 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 Run your app with ng serve command and Then enter the localhost:4200 url on your browser. boom here you are
 now you can should see this page on your browser
 
+![starter-template-page](./document/image/starter-template.png)
+
 > Hint : the angular app port is 4200 but if you wanna change that just add the --port your-port flag on the end of your start command
 
 ## Commands
