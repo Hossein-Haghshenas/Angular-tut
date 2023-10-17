@@ -83,14 +83,50 @@ In the context of web development using the Angular framework, an **interface** 
 
 ### Purpose of Interfaces in Angular
 
-1. **Defining Data Structures**: Interfaces are used to define the structure of objects or data models. For example, you can create an interface to describe the shape of a user object with properties like `name`, `email`, and `id`.
+1. **Defining Data Structures** : Interfaces are used to define the structure of objects or data models. For example, you can create an interface to describe the shape of a user object with properties like `name`, `email`, and `id`.
 
-   ```typescript
+   ```
    interface User {
      name: string;
      email: string;
      id: number;
    }
    ```
+
+2. **Type Checking** : Interfaces help enforce type checking. When you create a class or object that implements an interface, TypeScript checks whether all the properties and methods required by the interface are present in the class or object. This helps catch errors at compile-time.
+
+```
+class Customer implements User {
+  name: string;
+  email: string;
+  id: number;
+
+  constructor(name: string, email: string, id: number) {
+    this.name = name;
+    this.email = email;
+    this.id = id;
+  }
+}
+```
+
+3. **Custom Types** : Interfaces can be used to create custom types, making it easier to work with complex data structures.
+
+```
+interface Point {
+  x: number;
+  y: number;
+}
+
+function calculateDistance(pointA: Point, pointB: Point): number {
+  // Calculate distance logic here
+}
+```
+
+4. **Component Input and Output** : In Angular, you often use interfaces to define the structure of data that components accept as input or emit as output through @Input and @Output decorators.
+
+```
+@Input() user: User;
+@Output() selected: EventEmitter<User> = new EventEmitter<User>();
+```
 
 <!-- ## Add an input parameter to the component -->
