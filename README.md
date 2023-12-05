@@ -130,3 +130,8 @@ function calculateDistance(pointA: Point, pointB: Point): number {
 ```
 
 <!-- ## Add an input parameter to the component -->
+
+### Angular 17 requirements
+
+Angular v17 supports node.js versions: v18.13.0 and newer
+Angular v17 supports TypeScript version 5.2 or later.
